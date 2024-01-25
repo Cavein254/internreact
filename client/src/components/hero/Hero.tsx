@@ -17,8 +17,11 @@ const Hero = () => {
               fontWeight: "400",
             }}
           >
-            Empower Your Career Journey with{" "}
-            <span className="gpol">INTERN CONNECT</span>
+            <span className="gpol">THE INTERN</span>
+            <p className="hero-subtext">
+              {" "}
+              A bright future begins with the right match{" "}
+            </p>
           </Typography>
           <Typography
             variant="h5"
@@ -26,9 +29,7 @@ const Hero = () => {
               fontFamily: "Dancing Script",
               fontSize: "2rem",
             }}
-          >
-            Your Success, Our Priority.
-          </Typography>
+          ></Typography>
         </Box>
         <Box>
           <a href="#services">
