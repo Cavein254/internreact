@@ -1,7 +1,6 @@
-import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
-import AboutImg from '../../assets/working.jpg';
-import './styles.css';
+import { Box, Typography } from "@mui/material";
+import AboutImg from "../../assets/working.jpg";
+import "./styles.css";
 const About = () => {
   return (
     <Box component="section" id="about" className="aboutus">
@@ -9,11 +8,11 @@ const About = () => {
         <Typography
           variant="h4"
           sx={{
-            fontFamily: 'Roboto',
-            fontWeight: '100',
-            fontSize: '1.2rem',
-            textAlign: 'center',
-            textTransform: 'uppercase',
+            fontFamily: "Roboto",
+            fontWeight: "100",
+            fontSize: "1.2rem",
+            textAlign: "center",
+            textTransform: "uppercase",
           }}
         >
           About Us
@@ -24,9 +23,9 @@ const About = () => {
           <Typography
             variant="h4"
             sx={{
-              fontFamily: 'Merriweather',
-              fontSize: '1.4rem',
-              fontWeight: '400',
+              fontFamily: "Merriweather",
+              fontSize: "1.4rem",
+              fontWeight: "400",
             }}
           >
             About IC Career Agency
@@ -34,8 +33,8 @@ const About = () => {
           <Typography
             variant="body1"
             sx={{
-              fontFamily: 'Poppins',
-              fontWeight: '200',
+              fontFamily: "Poppins",
+              fontWeight: "200",
             }}
           >
             A beacon of professional growth and guidance, IC is committed to
@@ -49,13 +48,7 @@ const About = () => {
           </Typography>
         </Box>
         <Box className="about-us-img-container">
-          <Image
-            height={300}
-            width={300}
-            src={AboutImg}
-            alt="aboutus"
-            className="about-us-img"
-          />
+          <img src={AboutImg} alt="aboutus" className="about-us-img" />
         </Box>
       </Box>
     </Box>
