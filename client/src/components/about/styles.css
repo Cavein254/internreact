@@ -1,0 +1,27 @@
+.aboutus {
+  background-color: lightgray;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.about-us-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+@media only screen and (min-width: 641px) {
+  .about-us-content {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .about-us-text {
+    width: 50%;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .about-us-img-container {
+    width: 50%;
+  }
+}

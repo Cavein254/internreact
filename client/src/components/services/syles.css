@@ -1,0 +1,32 @@
+.services {
+  margin-top: 1rem;
+  background-color: #f7f8fa;
+  padding: 2rem 1rem;
+}
+.services-icon {
+  font-size: 3rem;
+  padding: 1rem;
+  background-color: #eaedf3;
+  border-radius: 50%;
+}
+.services-wrapper {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.service-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media only screen and (min-width: 641px) {
+  .service-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .services-wrapper {
+    margin-right: 1rem;
+  }
+}

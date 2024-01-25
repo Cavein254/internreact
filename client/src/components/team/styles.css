@@ -1,0 +1,64 @@
+.team {
+  margin-top: 2rem;
+}
+.team-container {
+  position: relative;
+  height: 23rem;
+  width: 23rem;
+  border: lightgray 2px solid;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+.team-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3.2rem;
+}
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.team-img-container {
+  width: 9rem;
+  height: 9rem;
+}
+.team-social {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: lightgray 1px solid;
+}
+.team-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: lightgray 1px solid;
+  width: 100%;
+  height: 3rem;
+}
+.team-icon {
+  font-size: 1.4rem;
+  text-align: center;
+}
+.team-icon:hover {
+  color: blue;
+}
+
+@media only screen and (min-width: 641px) {
+  .team-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .team-container {
+    margin-right: 1rem;
+  }
+}

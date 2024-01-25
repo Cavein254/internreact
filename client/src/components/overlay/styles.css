@@ -1,0 +1,64 @@
+.overlay-container {
+  position: absolute;
+  z-index: 10;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+}
+.overlay-close-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: left;
+  padding: 2rem;
+}
+.overlay-close-btn {
+  color: #ff6600;
+  text-align: right;
+  font-size: 2rem;
+}
+.overlay-icon {
+  color: #ff6600;
+  font-size: 4rem;
+}
+.overlay-links-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-links-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.overlay-link > a {
+  text-decoration: none;
+  color: #ff6600;
+  font-size: 2rem;
+  font-family: Poppins;
+  font-weight: 900;
+}
+.overlay-link > a:hover {
+  border-bottom: 0.4rem solid rgb(143, 62, 8);
+  color: rgb(143, 62, 8);
+}
+.overlay-bottom {
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 800px) {
+  .overlay-container {
+    display: none;
+    visibility: hidden;
+  }
+}
+@media only screen and (min-width: 801px) {
+  .overlay-container {
+    display: none;
+    visibility: hidden;
+  }
+}

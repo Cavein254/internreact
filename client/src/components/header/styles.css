@@ -1,0 +1,108 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 350px;
+}
+.header-icon {
+  font-size: 1.4rem;
+}
+.header-company-logo {
+  color: #f60;
+  font-size: 1.8rem;
+  margin-right: 0.4rem;
+}
+.header-details {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+}
+.header-links {
+  display: none;
+  visibility: hidden;
+}
+.header-btns {
+}
+.header-login-btn {
+  display: none;
+  visibility: hidden;
+}
+@media only screen and (min-width: 641px) and (max-width: 800px) {
+  .header-icon-container {
+    visibility: hidden;
+    display: none;
+  }
+  .header-details {
+    display: flex;
+    justify-content: unset;
+  }
+  .header-login-btn {
+    visibility: visible;
+    display: block;
+  }
+  .header-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 801px) {
+  .header-details {
+    display: flex;
+    flex-grow: 0;
+  }
+  .header-links-container {
+    display: flex;
+    justify-content: unset;
+    flex-grow: 1;
+  }
+  .header-links-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .header-links {
+    display: block;
+    visibility: visible;
+  }
+  .header-links > a {
+    text-decoration: none;
+    margin-right: 1rem;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #f60;
+  }
+  .header-links > a:hover {
+    border-bottom: 0.4rem solid rgb(143, 62, 8);
+    color: rgb(143, 62, 8);
+    text-decoration: none;
+  }
+  .header-links > a:active {
+    border-bottom: 0.4rem solid rgb(143, 62, 8);
+    color: rgb(143, 62, 8);
+    text-decoration: none;
+  }
+  .header-link > a {
+    text-decoration: none;
+  }
+  .header-icon-container {
+    visibility: hidden;
+    display: none;
+  }
+  .header-details {
+    display: flex;
+    justify-content: unset;
+  }
+  .header-login-btn {
+    visibility: visible;
+    display: block;
+  }
+  .header-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

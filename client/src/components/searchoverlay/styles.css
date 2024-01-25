@@ -1,0 +1,25 @@
+.searchova {
+    margin:1rem;
+}
+.searchova-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.searchova-icon {
+    font-size: large;
+}
+
+.searchova-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchova-input-icon {
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
+

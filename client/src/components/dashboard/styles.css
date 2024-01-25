@@ -1,0 +1,45 @@
+.dashboard-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.dashboard-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-remote {
+    width: 80%;
+    margin-bottom: .5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.dashboard-filter {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard-search {
+    display: none;
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 641px) {
+    .dashboard-main {
+        display: flex;
+        flex-direction: row;
+        padding:1rem;
+    }
+    .dashboard-jobs{
+        margin-left:1rem;
+        width:100%;
+    }
+    .dashboard-search {
+        display: block;
+        visibility: visible;
+    }
+  }

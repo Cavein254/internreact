@@ -1,0 +1,15 @@
+.subscribe {
+  margin-top: 2rem;
+}
+@media only screen and (min-width: 641px) {
+  .subscribe {
+    display: flex;
+    justify-content: center;
+  }
+  .subscribe-container {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    justify-content: center;
+  }
+}
