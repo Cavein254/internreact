@@ -1,10 +1,10 @@
-import MainPage from "./pages/MainPage";
+import Signup from "./components/auth/Signup";
 
 function App() {
   return (
     <>
       <div>
-        <MainPage />
+        <Signup />
       </div>
     </>
   );
