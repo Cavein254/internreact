@@ -28,7 +28,7 @@ const About = () => {
               fontWeight: "400",
             }}
           >
-            About The Intern Career Agency
+            About The Intern
           </Typography>
           <Typography
             variant="body1"
