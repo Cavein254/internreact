@@ -1,13 +1,12 @@
-'use client';
-import { Box, Stack } from '@mui/system';
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { BsFan } from 'react-icons/bs';
+"use client";
+import { Box, Stack } from "@mui/system";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { BsFan } from "react-icons/bs";
 
-import { Typography } from '@mui/material';
-import { signOut } from 'next-auth/react';
-import { BiLogInCircle } from 'react-icons/bi';
-import { HeaderLinks } from '../header/LinkData';
-import './styles.css';
+import { Typography } from "@mui/material";
+import { BiLogInCircle } from "react-icons/bi";
+import { HeaderLinks } from "../header/LinkData";
+import "./styles.css";
 
 type Props = {
   isOpen: Boolean;
@@ -37,15 +36,15 @@ const Overlay = ({ isOpen, setIsOpen }: Props) => {
         </Box>
         <Box className="overlay-links-wrapper">{links}</Box>
       </Box>
-      <Box className="overlay-bottom" onClick={() => signOut()}>
+      <Box className="overlay-bottom" onClick={() => console.log("signout")}>
         <BiLogInCircle className="overlay-icon" />
         <Typography
           variant="h5"
           sx={{
-            fontFamily: 'Poppins',
-            fontWeight: '900',
-            color: '#ff6600',
-            fontSize: '2rem',
+            fontFamily: "Poppins",
+            fontWeight: "900",
+            color: "#ff6600",
+            fontSize: "2rem",
           }}
         >
           Log Out

@@ -1,4 +1,3 @@
-'use client';
 import {
   Avatar,
   Box,
@@ -8,32 +7,30 @@ import {
   MenuItem,
   Tooltip,
   Typography,
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { useState } from 'react';
-import { BsFan } from 'react-icons/bs';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import Overlay from '../overlay/Overlay';
-import { HeaderLinks } from './LinkData';
-import './styles.css';
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { useState } from "react";
+import { BsFan } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Overlay from "../overlay/Overlay";
+import { HeaderLinks } from "./LinkData";
+import "./styles.css";
 
 const StyledSignUp = styled(Button)`
   background-color: #ff6600;
   color: #fff;
   font-size: 0.8rem;
   border-radius: 0;
-  '&:hover': {
-    background-color: '#fff';
-    color: '#ff6600';
+  "&:hover": {
+    background-color: "#fff";
+    color: "#ff6600";
   }
 `;
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const session = null;
 
-  const { data: session } = useSession();
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -43,9 +40,9 @@ const Header = () => {
   const linkNavs = HeaderLinks.map((link) => {
     return (
       <span key={link.id} className="header-links">
-        <Link href={link.path} className="header-link">
+        <a href={link.path} className="header-link">
           {link.name}
-        </Link>
+        </a>
       </span>
     );
   });
@@ -64,9 +61,9 @@ const Header = () => {
           <Typography
             variant="h4"
             sx={{
-              fontFamily: 'Merriweather',
-              fontWeight: '900',
-              fontSize: '1.8rem',
+              fontFamily: "Merriweather",
+              fontWeight: "900",
+              fontSize: "1.8rem",
             }}
           >
             IC
@@ -83,17 +80,17 @@ const Header = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -103,12 +100,12 @@ const Header = () => {
                   <a href="/dashboard">Available Jobs</a>
                 </Typography>
               </MenuItem>
-              {session?.role === 'ADMIN' && (
+              {session?.role === "ADMIN" && (
                 <MenuItem>
                   <Typography textAlign="center">Admin</Typography>
                 </MenuItem>
               )}
-              {session?.position === 'EMPLOYER' && (
+              {session?.position === "EMPLOYER" && (
                 <MenuItem>
                   <Typography textAlign="center">
                     <a href="/employer/job/create">Create Job</a>
@@ -125,23 +122,23 @@ const Header = () => {
         ) : (
           <Box className="header-btns">
             <Box>
-              <Link href="/signin" className="header-link">
+              <a href="/signin" className="header-link">
                 <Button
                   variant="text"
                   className="header-login-btn"
                   sx={{
-                    marginRight: '0.4rem',
-                    fontSize: '1rem',
+                    marginRight: "0.4rem",
+                    fontSize: "1rem",
                   }}
                 >
                   Log In
                 </Button>
-              </Link>
+              </a>
             </Box>
             <Box>
-              <Link href="/signup" className="header-link">
+              <a href="/signup" className="header-link">
                 <StyledSignUp variant="contained">Sign Up</StyledSignUp>
-              </Link>
+              </a>
             </Box>
           </Box>
         )}

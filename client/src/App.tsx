@@ -1,5 +1,6 @@
 import About from "./components/about/About";
 import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import Services from "./components/services/Services";
 import Subscribe from "./components/subscribe/Subscribe";
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <div>
+        <Header />
         <Hero />
         <About />
         <Services />
