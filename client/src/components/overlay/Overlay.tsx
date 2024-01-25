@@ -6,7 +6,6 @@ import { BsFan } from "react-icons/bs";
 import { Typography } from "@mui/material";
 import { BiLogInCircle } from "react-icons/bi";
 import { HeaderLinks } from "../header/LinkData";
-import "./styles.css";
 
 type Props = {
   isOpen: boolean;
