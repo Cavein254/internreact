@@ -12,6 +12,9 @@ const StatisticItem = ({ item }: { item: ItemProp }) => {
     <Box
       sx={{
         boxShadow: 1,
+        width: "250px",
+        padding: "1rem",
+        mt: "1rem",
       }}
     >
       <CardContent>
@@ -30,7 +33,7 @@ const StatisticItem = ({ item }: { item: ItemProp }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
           }}
           color="text.secondary"
         >
@@ -45,7 +48,7 @@ const StatisticItem = ({ item }: { item: ItemProp }) => {
                 fontSize: "2rem",
               }}
             >
-              {item.num}%
+              {item.num}
             </Typography>
           </Box>
         </Box>
