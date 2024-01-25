@@ -1,5 +1,7 @@
 import {
   Box,
+  Button,
+  Divider,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -12,6 +14,7 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
@@ -153,6 +156,7 @@ const Signup = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "row",
+                    mb: "1rem",
                   }}
                 >
                   <FormControlLabel
@@ -175,21 +179,24 @@ const Signup = () => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={["DatePicker", "DatePicker"]}>
                   <DatePicker
-                    label="Uncontrolled picker"
+                    label="Date of Birth"
                     defaultValue={dayjs("2022-04-17")}
                   />
                 </DemoContainer>
               </LocalizationProvider>
+              <Button variant="contained" sx={{ mt: "1rem" }}>
+                Create an Account
+              </Button>
             </Box>
           </form>
           <Box
             sx={{
-              sm: {
-                display: "none",
-                visibility: "hidden",
-              },
+              display: { xs: "hidden", md: "block" },
+              visibility: { xs: "hidden", md: "visible" },
             }}
-          ></Box>
+          >
+            <h1>the ennenenenen</h1>
+          </Box>
         </Box>
       </Box>
     </Box>
