@@ -1,15 +1,15 @@
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <Box
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
+        display: "flex",
+        justifyContent: "center",
       }}
     >
-      <Box> &copy; {year} IC Career Agency. All rights reserved.</Box>
+      <Box> &copy; {year} The Intern. All rights reserved.</Box>
     </Box>
   );
 };
