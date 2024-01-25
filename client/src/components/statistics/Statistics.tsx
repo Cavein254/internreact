@@ -1,12 +1,11 @@
-import { Box, CardContent, Typography } from "@mui/material";
-import React from "react";
+import { Box } from "@mui/material";
 import StatisticItem from "./StatisticItem";
 
 const Statistics = () => {
   const numbers = [
     {
       id: 1,
-      text: "The percentage of our clients placed into internships",
+      text: "The percentage of our interns placed into internships",
       title: "Placements",
       num: "78%",
     },

@@ -1,37 +1,17 @@
-import { BsPeopleFill, BsPersonLinesFill } from 'react-icons/bs';
-import { FaRegNewspaper } from 'react-icons/fa';
-import { GrTest } from 'react-icons/gr';
-import { MdScreenSearchDesktop } from 'react-icons/md';
+import { FaRegNewspaper } from "react-icons/fa";
+import { GrTest } from "react-icons/gr";
 
 export const ServiceData = [
   {
     id: 1,
-    name: 'Career Assessment',
-    desc: 'Uncover your strengths and passions',
+    name: "Short Term Job Placement",
+    desc: "Facilitating swift and strategic Short Term Job Placements to match individuals with exciting opportunities and immediate employment prospects.",
     icon: GrTest,
   },
   {
     id: 3,
-    name: 'Resume Enhancement',
-    desc: 'Craft a compelling resume that stands out.',
+    name: "Internship opportunities",
+    desc: "Unlock valuable career experiences and skill development through our diverse array of internship opportunities tailored to foster professional growth and hands-on learning",
     icon: FaRegNewspaper,
-  },
-  {
-    id: 4,
-    name: 'Job Search Strategy',
-    desc: 'Navigate the job market with confidence',
-    icon: MdScreenSearchDesktop,
-  },
-  {
-    id: 5,
-    name: 'Interview Coaching',
-    desc: 'Excel in interviews and leave a lasting impression.',
-    icon: BsPersonLinesFill,
-  },
-  {
-    id: 6,
-    name: 'Networking Mastery',
-    desc: 'Develop meaningful connections for your career.',
-    icon: BsPeopleFill,
   },
 ];

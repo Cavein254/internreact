@@ -76,7 +76,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={session?.image} />
+                <Avatar alt="Remy Sharp" src={session} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -100,12 +100,12 @@ const Header = () => {
                   <a href="/dashboard">Available Jobs</a>
                 </Typography>
               </MenuItem>
-              {session?.role === "ADMIN" && (
+              {session === "ADMIN" && (
                 <MenuItem>
                   <Typography textAlign="center">Admin</Typography>
                 </MenuItem>
               )}
-              {session?.position === "EMPLOYER" && (
+              {session === "EMPLOYER" && (
                 <MenuItem>
                   <Typography textAlign="center">
                     <a href="/employer/job/create">Create Job</a>
@@ -113,9 +113,7 @@ const Header = () => {
                 </MenuItem>
               )}
               <MenuItem>
-                <Typography textAlign="center" onClick={() => signOut()}>
-                  Logout
-                </Typography>
+                <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>
           </Box>

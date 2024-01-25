@@ -1,5 +1,4 @@
 import { Box, CardContent, Typography } from "@mui/material";
-import React from "react";
 
 type ItemProp = {
   id: number;
@@ -19,7 +18,7 @@ const StatisticItem = ({ item }: { item: ItemProp }) => {
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "0.8rem" }}
+          sx={{ fontSize: "1.3rem" }}
           variant="h4"
           color="text.secondary"
           gutterBottom

@@ -9,8 +9,8 @@ import { HeaderLinks } from "../header/LinkData";
 import "./styles.css";
 
 type Props = {
-  isOpen: Boolean;
-  setIsOpen: (value: Boolean | any) => void;
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
 };
 const Overlay = ({ isOpen, setIsOpen }: Props) => {
   const links = HeaderLinks.map((link) => {
