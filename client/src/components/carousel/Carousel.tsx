@@ -1,15 +1,16 @@
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { Box } from "@mui/material";
 
 const Carousel = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 100,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
   };
   return (
     <Box>
