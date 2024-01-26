@@ -44,7 +44,6 @@ const Signup = () => {
     >
       <Grid
         container
-        columnSpacing={1}
         sx={{
           mt: "2rem",
           p: "1rem",
@@ -52,14 +51,27 @@ const Signup = () => {
       >
         <Grid item xs={12} md={6}>
           <Box>
-            <Typography variant="h1">Create Account</Typography>
-            <Typography variant="h6">
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: "2rem",
+                fontWeight: 900,
+              }}
+            >
+              Create Account
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 100,
+              }}
+            >
               Join the best internship program
             </Typography>
           </Box>
           <Box
             sx={{
-              p: "1rem",
+              mt: "1rem",
             }}
           >
             <form>
@@ -67,6 +79,7 @@ const Signup = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
+                  mr: "1rem",
                 }}
               >
                 <Box sx={{ display: "flex" }}>
