@@ -22,7 +22,13 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-const Register = () => {
+const Register = ({
+  login,
+  setLogin,
+}: {
+  login: boolean;
+  setLogin: (value: boolean | false) => void;
+}) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);

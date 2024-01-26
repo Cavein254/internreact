@@ -1,4 +1,4 @@
-type AuthData = {
+export type AuthData = {
   login: boolean;
-  setLogin: (value: boolean) => void;
+  setLogin: (value: boolean | false) => void;
 };

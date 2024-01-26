@@ -13,7 +13,13 @@ import {
 import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-const SignIn = () => {
+const SignIn = ({
+  login,
+  setLogin,
+}: {
+  login: boolean;
+  setLogin: (value: boolean | false) => void;
+}) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -105,7 +111,7 @@ const SignIn = () => {
           >
             {" "}
             Do not have an account?
-            <a href="/">Register</a>
+            <Button onClick={() => setLogin(!login)}>Create an Account</Button>
           </Typography>
         </Box>
       </Box>
