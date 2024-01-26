@@ -23,6 +23,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Carousel from "../carousel/Carousel";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -41,6 +42,14 @@ const Signup = () => {
           m: "1rem",
         }}
       >
+        <Box
+          sx={{
+            p: "1rem",
+          }}
+        >
+          <Typography variant="h1">Create Account</Typography>
+          <Typography variant="h6">Join the best internship program</Typography>
+        </Box>
         <Box
           sx={{
             p: "1rem",
@@ -195,7 +204,33 @@ const Signup = () => {
               visibility: { xs: "hidden", md: "visible" },
             }}
           >
-            <h1>the ennenenenen</h1>
+            <Box
+              sx={{
+                bgColor: "lightgray",
+              }}
+            >
+              <Box>
+                <Box>
+                  <Typography variant="h2">
+                    The best way to boost your productivity
+                  </Typography>
+                  <Typography variant="h5">
+                    Enhance your skills with our services
+                  </Typography>
+                </Box>
+                <Box>
+                  <Carousel />
+                </Box>
+                <Box>
+                  <Typography variant="h6">
+                    Elevate your career journey with us – where meaningful
+                    connections and professional growth converge. Join today and
+                    pave the way for a brighter, more fulfilling future!
+                  </Typography>
+                </Box>
+              </Box>
+              <Box>The Intern</Box>
+            </Box>
           </Box>
         </Box>
       </Box>
