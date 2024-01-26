@@ -31,7 +31,7 @@ const Auth = () => {
         ) : (
           <Register setLogin={setLogin} login={login} />
         )}
-        <AuthSide />
+        <AuthSide login={login} />
       </Grid>
     </Box>
   );

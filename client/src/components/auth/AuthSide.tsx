@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Carousel from "../carousel/Carousel";
 
-const AuthSide = () => {
+const AuthSide = ({ login }: { login: boolean }) => {
   return (
     <Grid
       item
@@ -32,15 +32,25 @@ const AuthSide = () => {
               textAlign: "center",
             }}
           >
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: "1.4rem",
-              }}
-            >
-              The best way to boost your productivity
-            </Typography>
-
+            {login ? (
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: "1.4rem",
+                }}
+              >
+                Continue your Journey to achieving greater heights
+              </Typography>
+            ) : (
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: "1.4rem",
+                }}
+              >
+                The best way to boost your productivity
+              </Typography>
+            )}
             <Typography
               variant="h5"
               sx={{
