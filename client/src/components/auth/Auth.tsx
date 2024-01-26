@@ -3,6 +3,7 @@ import { Box, Grid } from "@mui/material";
 import AuthSide from "./AuthSide";
 import SignIn from "./SignIn";
 import React from "react";
+import Register from "./Register";
 
 const Auth = () => {
   const [login, setLogin] = React.useState<boolean>(false);
@@ -25,8 +26,12 @@ const Auth = () => {
         }}
         xs={12}
       >
-        <SignIn setLogin={setLogin} login={login} />
-        <AuthSide setLogin={setLogin} login={login} />
+        {login ? (
+          <SignIn setLogin={setLogin} login={login} />
+        ) : (
+          <Register setLogin={setLogin} login={login} />
+        )}
+        <AuthSide />
       </Grid>
     </Box>
   );
