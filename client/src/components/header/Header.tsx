@@ -119,7 +119,7 @@ const Header = () => {
           </Box>
         ) : (
           <Box className="header-btns">
-            <Box>
+            {/* <Box>
               <a href="/signin" className="header-link">
                 <Button
                   variant="text"
@@ -132,7 +132,7 @@ const Header = () => {
                   Log In
                 </Button>
               </a>
-            </Box>
+            </Box> */}
             <Box>
               <a href="/signup" className="header-link">
                 <StyledSignUp variant="contained">

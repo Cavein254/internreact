@@ -1,4 +1,3 @@
-"use client";
 import { Box, Stack } from "@mui/system";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFan } from "react-icons/bs";
@@ -6,7 +5,7 @@ import { BsFan } from "react-icons/bs";
 import { Typography } from "@mui/material";
 import { BiLogInCircle } from "react-icons/bi";
 import { HeaderLinks } from "../header/LinkData";
-
+import "./styles.css";
 type Props = {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
