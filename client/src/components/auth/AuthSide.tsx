@@ -51,28 +51,60 @@ const AuthSide = ({ login }: { login: boolean }) => {
                 The best way to boost your productivity
               </Typography>
             )}
-            <Typography
-              variant="h5"
-              sx={{
-                fontSize: "1rem",
-              }}
-            >
-              Enhance your skills with our services
-            </Typography>
+            {login ? (
+              <Typography
+                variant="h5"
+                sx={{
+                  fontSize: "1rem",
+                }}
+              >
+                View our list of the best currated internship opportunities
+              </Typography>
+            ) : (
+              <Typography
+                variant="h5"
+                sx={{
+                  fontSize: "1rem",
+                }}
+              >
+                Enhance your skills with our services
+              </Typography>
+            )}
           </Box>
           <Box
             sx={{
               display: "block",
+              mt: "1rem",
             }}
           >
             <Carousel />
           </Box>
           <Box>
-            <Typography variant="h6">
-              Elevate your career journey with us – where meaningful connections
-              and professional growth converge. Join today and pave the way for
-              a brighter, more fulfilling future!
-            </Typography>
+            {login ? (
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: "0.8rem",
+                }}
+              >
+                Unlock your potential with our innovative platform! We
+                specialize in seamlessly connecting ambitious interns with
+                top-tier companies and potential employers. Our user-friendly
+                interface streamlines the internship search, offering a vast
+                network of opportunities tailored to your skills and aspirations
+              </Typography>
+            ) : (
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: "0.8rem",
+                }}
+              >
+                Elevate your career journey with us – where meaningful
+                connections and professional growth converge. Join today and
+                pave the way for a brighter, more fulfilling future!
+              </Typography>
+            )}
           </Box>
         </Box>
         <Box
