@@ -1,6 +1,5 @@
 import { Box, Grid } from "@mui/material";
 
-import Register from "./Register";
 import AuthSide from "./AuthSide";
 import SignIn from "./SignIn";
 
@@ -12,6 +11,7 @@ const Auth = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
+        flexDirection: "column",
       }}
     >
       <Grid
