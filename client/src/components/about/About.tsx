@@ -37,19 +37,32 @@ const About = () => {
               fontWeight: "200",
             }}
           >
-            A beacon of professional growth and guidance, The Intern is
-            committed to empowering individuals in their pursuit of fulfilling
-            careers. With a focus on personalized strategies, their expert team
-            offers a range of services designed to unlock potential, from career
-            assessments to resume enhancement. At The Intern, one size does not
-            fit all. Our approach is rooted in understanding each individual's
-            unique strengths and aspirations, ensuring that every client
-            receives tailored advice and support that resonates with their
-            journey.
+            WHY the intern For the intern/graduate Access to internship
+            opportunities Work experience through training on the job An
+            opportunity to experience work in different industries Develop
+            skills that bridge the gap between employability and quality
+            education An opportunity for employment on successful completion of
+            the internship
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: "Poppins",
+              fontWeight: "200",
+            }}
+          >
+            For the organisation/company Easy access to vetted professional
+            Opportunity to offer short term work contracts to be done either
+            remotely or in your office premises Opportunity to replace the
+            intern on valid dismisal grounds
           </Typography>
         </Box>
         <Box className="about-us-img-container">
-          <img src={AboutImg} alt="aboutus" className="about-us-img" />
+          <img
+            src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="aboutus"
+            className="about-us-img"
+          />
         </Box>
       </Box>
     </Box>

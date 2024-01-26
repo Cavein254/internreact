@@ -66,7 +66,7 @@ const Header = () => {
               fontSize: "1.8rem",
             }}
           >
-            IC
+            The Intern
           </Typography>
         </Box>
         <Box className="header-links-container">
@@ -135,7 +135,9 @@ const Header = () => {
             </Box>
             <Box>
               <a href="/signup" className="header-link">
-                <StyledSignUp variant="contained">Sign Up</StyledSignUp>
+                <StyledSignUp variant="contained">
+                  Looking for an intern?
+                </StyledSignUp>
               </a>
             </Box>
           </Box>
