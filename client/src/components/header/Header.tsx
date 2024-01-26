@@ -15,6 +15,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Overlay from "../overlay/Overlay";
 import { HeaderLinks } from "./LinkData";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const StyledSignUp = styled(Button)`
   background-color: #ff6600;
@@ -134,11 +135,11 @@ const Header = () => {
               </a>
             </Box> */}
             <Box>
-              <a href="/signup" className="header-link">
+              <Link to="/auth" className="header-link">
                 <StyledSignUp variant="contained">
                   Looking for an intern?
                 </StyledSignUp>
-              </a>
+              </Link>
             </Box>
           </Box>
         )}

@@ -120,7 +120,7 @@ const AuthSide = ({ login }: { login: boolean }) => {
             <Typography
               variant="h4"
               sx={{
-                color: "#f59f00",
+                color: "#ff6600",
               }}
             >
               THE INTERN

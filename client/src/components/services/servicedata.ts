@@ -1,4 +1,5 @@
 import { FaRegNewspaper } from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
 import { GrTest } from "react-icons/gr";
 
 export const ServiceData = [
@@ -18,6 +19,6 @@ export const ServiceData = [
     id: 3,
     name: "Short term job placement",
     desc: "Unlock valuable career experiences and skill development through our diverse array of internship opportunities tailored to foster professional growth and hands-on learning to match individuals with available opportunities and tasks to be executed.",
-    icon: FaRegNewspaper,
+    icon: FaPerson,
   },
 ];
