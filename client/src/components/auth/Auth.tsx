@@ -2,8 +2,10 @@ import { Box, Grid } from "@mui/material";
 
 import AuthSide from "./AuthSide";
 import SignIn from "./SignIn";
+import React from "react";
 
 const Auth = () => {
+  const [login, setLogin] = React.useState<boolean>(false);
   return (
     <Box
       container-full
@@ -23,8 +25,8 @@ const Auth = () => {
         }}
         xs={12}
       >
-        <SignIn />
-        <AuthSide />
+        <SignIn setLogin={setLogin} login={login} />
+        <AuthSide setLogin={setLogin} login={login} />
       </Grid>
     </Box>
   );

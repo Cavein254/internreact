@@ -213,7 +213,7 @@ const Register = () => {
           >
             {" "}
             Already have an account?
-            <a href="/">Sign In</a>
+            <Button onClick={() => setLogin(!login)}>Sign In</Button>
           </Typography>
         </Box>
       </Box>

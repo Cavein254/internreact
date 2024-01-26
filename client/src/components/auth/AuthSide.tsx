@@ -10,6 +10,7 @@ const AuthSide = () => {
         display: { xs: "none", md: "block" },
         backgroundColor: "#eceff4",
         borderRadius: "15px",
+        position: "relative",
       }}
     >
       <Box
@@ -64,7 +65,26 @@ const AuthSide = () => {
             </Typography>
           </Box>
         </Box>
-        <Box>The Intern</Box>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            display: "flex",
+            justifyContent: "right",
+            width: "100%",
+          }}
+        >
+          <Box sx={{}}>
+            <Typography
+              variant="h4"
+              sx={{
+                color: "#f59f00",
+              }}
+            >
+              THE INTERN
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </Grid>
   );
