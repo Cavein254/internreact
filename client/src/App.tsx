@@ -1,10 +1,10 @@
-import Signup from "./components/auth/Signup";
+import Auth from "./components/auth/Auth";
 
 function App() {
   return (
     <>
       <div>
-        <Signup />
+        <Auth />
       </div>
     </>
   );
