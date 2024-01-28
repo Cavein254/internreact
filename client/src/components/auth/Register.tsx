@@ -36,9 +36,9 @@ const Register = ({
     email: "",
     password: "",
     confirmPassword: "",
-    dob: "",
-    phone: "",
     gender: Gender.FEMALE,
+    dob: dayjs(Date.now()),
+    phone: "",
   });
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -48,6 +48,16 @@ const Register = ({
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setRegDetails({
+      ...regDetails,
+      [name]: value,
+    });
+    console.log(regDetails);
   };
   return (
     <Grid item xs={12} md={6}>
@@ -75,7 +85,7 @@ const Register = ({
           mt: "1rem",
         }}
       >
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <Box
             sx={{
               display: "flex",
@@ -94,6 +104,8 @@ const Register = ({
                   variant="outlined"
                   placeholder="John"
                   type="text"
+                  name="fName"
+                  value={regDetails.fName}
                 />
               </FormControl>
               <FormControl defaultValue="" fullWidth required>
@@ -105,6 +117,8 @@ const Register = ({
                   variant="outlined"
                   placeholder="Doe"
                   type="text"
+                  name="lName"
+                  value={regDetails.lName}
                 />
               </FormControl>
             </Box>
@@ -117,6 +131,8 @@ const Register = ({
                 variant="outlined"
                 placeholder="Johndoe@gmail.com"
                 type="email"
+                name="email"
+                value={regDetails.email}
               />
             </FormControl>
             <FormControl variant="outlined" sx={{ mb: "1rem" }}>
@@ -139,6 +155,8 @@ const Register = ({
                   </InputAdornment>
                 }
                 label="Password"
+                name="password"
+                value={regDetails.password}
               />
             </FormControl>
             <FormControl variant="outlined">
@@ -161,6 +179,8 @@ const Register = ({
                   </InputAdornment>
                 }
                 label="Confirm Password"
+                name="confirmPassword"
+                value={regDetails.confirmPassword}
               />
             </FormControl>
             <FormControl defaultValue="" required>
@@ -180,7 +200,8 @@ const Register = ({
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
-                name="radio-buttons-group"
+                value={regDetails.gender}
+                name="gender"
                 sx={{
                   display: "flex",
                   flexDirection: "row",
@@ -188,17 +209,17 @@ const Register = ({
                 }}
               >
                 <FormControlLabel
-                  value="female"
+                  value={regDetails.gender}
                   control={<Radio />}
                   label="Female"
                 />
                 <FormControlLabel
-                  value="male"
+                  value={regDetails.gender}
                   control={<Radio />}
                   label="Male"
                 />
                 <FormControlLabel
-                  value="other"
+                  value={regDetails.gender}
                   control={<Radio />}
                   label="Other"
                 />
@@ -209,6 +230,8 @@ const Register = ({
                 <DatePicker
                   label="Date of Birth"
                   defaultValue={dayjs("2022-04-17")}
+                  value={regDetails.dob}
+                  name="dob"
                 />
               </DemoContainer>
             </LocalizationProvider>

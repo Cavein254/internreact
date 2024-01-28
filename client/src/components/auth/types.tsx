@@ -1,3 +1,5 @@
+import { Dayjs } from "dayjs";
+
 export type AuthData = {
   login: boolean;
   setLogin: (value: boolean | false) => void;
@@ -6,6 +8,7 @@ export type AuthData = {
 export enum Gender {
   MALE,
   FEMALE,
+  OTHER,
 }
 
 export interface RegisterDetails {
@@ -14,7 +17,7 @@ export interface RegisterDetails {
   email: string;
   password: string;
   confirmPassword: string;
-  dob: string;
+  dob: Dayjs;
   phone: string;
   gender: Gender;
 }
