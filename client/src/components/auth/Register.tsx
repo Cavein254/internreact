@@ -22,6 +22,22 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
+enum Gender {
+  MALE,
+  FEMALE,
+}
+
+interface RegisterDetails {
+  fName: string;
+  lName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  dob: string;
+  phone: string;
+  gender: Gender;
+}
+
 const Register = ({
   login,
   setLogin,
@@ -29,6 +45,16 @@ const Register = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
+  const [regDetails, setRegDetails] = React.useState<RegisterDetails>({
+    fName: "",
+    lName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    dob: "",
+    phone: "",
+    gender: Gender.FEMALE,
+  });
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
