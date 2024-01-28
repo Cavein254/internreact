@@ -21,22 +21,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-
-enum Gender {
-  MALE,
-  FEMALE,
-}
-
-interface RegisterDetails {
-  fName: string;
-  lName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  dob: string;
-  phone: string;
-  gender: Gender;
-}
+import { Gender, RegisterDetails } from "./types";
 
 const Register = ({
   login,
