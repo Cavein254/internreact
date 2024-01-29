@@ -1,4 +1,5 @@
 import prisma from "../db/db.js";
+import bcrypt from "bcrypt";
 
 export const getUserProfile = async (req, res) => {
   try {
@@ -13,7 +14,18 @@ export const getUserProfile = async (req, res) => {
 };
 
 export const createUserProfile = async (req, res) => {
-  const udata = await req.body;
+  const { fName, lName, email, gender, phone, dob, password } = await req.body;
+  const hash = await bcrypt.hashSync(password, 10);
+  const udata = {
+    fName,
+    lName,
+    email,
+    gender,
+    phone,
+    dob,
+    password: hash,
+  };
+
   try {
     const response = await prisma.profile.create({
       data: udata,
