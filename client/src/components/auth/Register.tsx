@@ -51,18 +51,17 @@ const Register = ({
     event.preventDefault();
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { name, value } = e.target as HTMLInputElement;
     setRegDetails({
       ...regDetails,
       [name]: value,
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(regDetails);
     const {
       fName,
       lName,
@@ -104,7 +103,9 @@ const Register = ({
       }
     };
     handleOnChange(email);
-    console.log(nData);
+    if (error !== "") {
+      console.log(nData);
+    }
   };
   return (
     <Grid item xs={12} md={6}>
