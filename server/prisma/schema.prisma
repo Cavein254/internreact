@@ -16,12 +16,12 @@ enum Gender {
   OTHER
 }
 model Profile {
-  id 
+  id      String      @id @default(cuid())
   fName String
   lName String
   email String
   password String
-  gender Gender @default(Gender.FEMALE)
+  gender Gender @default(FEMALE)
   phone String
   dob String
 }
