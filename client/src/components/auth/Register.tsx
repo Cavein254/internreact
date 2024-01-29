@@ -73,6 +73,38 @@ const Register = ({
       phone,
       gender,
     } = regDetails;
+    const nDob = dayjs(dob).format("MM/DD/YYYY");
+    if (
+      fName.length == 0 ||
+      lName.length == 0 ||
+      email.length == 0 ||
+      password.length == 0 ||
+      confirmPassword.length == 0 ||
+      phone.length == 0
+    ) {
+      setError("Fill all Fields");
+    }
+    if (confirmPassword !== password) {
+      setError("The password do not match");
+    }
+    const nData = {
+      fName,
+      lName,
+      email,
+      password,
+      gender,
+      dob: nDob,
+    };
+    const handleOnChange = (email: string) => {
+      const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      if (!re.test(email)) {
+        setError("Invalid Email");
+      }
+    };
+    handleOnChange(email);
+    console.log(nData);
   };
   return (
     <Grid item xs={12} md={6}>
