@@ -62,6 +62,7 @@ const Register = ({
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    console.log(regDetails);
     const {
       fName,
       lName,
@@ -245,17 +246,17 @@ const Register = ({
                 <FormControlLabel
                   control={<Radio />}
                   label="Female"
-                  value={Gender.FEMALE}
+                  value="FEMALE"
                 />
                 <FormControlLabel
                   control={<Radio />}
                   label="Male"
-                  value={Gender.MALE}
+                  value="MALE"
                 />
                 <FormControlLabel
                   control={<Radio />}
                   label="Other"
-                  value={Gender.OTHER}
+                  value="OTHER"
                 />
               </RadioGroup>
             </FormControl>
