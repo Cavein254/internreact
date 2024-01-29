@@ -24,7 +24,6 @@ const Auth = () => {
           boxShadow: 3,
           padding: { xs: "1rem", md: "4rem" },
         }}
-        xs={12}
       >
         {login ? (
           <SignIn setLogin={setLogin} login={login} />

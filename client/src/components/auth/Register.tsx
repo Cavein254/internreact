@@ -41,6 +41,7 @@ const Register = ({
     phone: "",
   });
   const [showPassword, setShowPassword] = React.useState(false);
+  const [error, setError] = React.useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -50,17 +51,41 @@ const Register = ({
     event.preventDefault();
   };
 
-  const handleFormSubmit = (e) => {
+  const handleInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     setRegDetails({
       ...regDetails,
       [name]: value,
     });
-    console.log(regDetails);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const {
+      fName,
+      lName,
+      email,
+      password,
+      confirmPassword,
+      dob,
+      phone,
+      gender,
+    } = regDetails;
   };
   return (
     <Grid item xs={12} md={6}>
+      {error && (
+        <Typography
+          variant="h6"
+          sx={{
+            color: "red",
+            fontSize: "0.8rem",
+          }}
+        >
+          {error}
+        </Typography>
+      )}
       <Box>
         <Typography
           variant="h1"
@@ -85,7 +110,7 @@ const Register = ({
           mt: "1rem",
         }}
       >
-        <form onSubmit={handleFormSubmit}>
+        <form>
           <Box
             sx={{
               display: "flex",
@@ -94,7 +119,7 @@ const Register = ({
             }}
           >
             <Box sx={{ display: "flex" }}>
-              <FormControl fullWidth defaultValue="" required>
+              <FormControl fullWidth defaultValue="">
                 <TextField
                   sx={{
                     mb: "1rem",
@@ -106,9 +131,10 @@ const Register = ({
                   type="text"
                   name="fName"
                   value={regDetails.fName}
+                  onChange={handleInputChange}
                 />
               </FormControl>
-              <FormControl defaultValue="" fullWidth required>
+              <FormControl defaultValue="" fullWidth>
                 <TextField
                   sx={{
                     mb: "1rem",
@@ -119,10 +145,11 @@ const Register = ({
                   type="text"
                   name="lName"
                   value={regDetails.lName}
+                  onChange={handleInputChange}
                 />
               </FormControl>
             </Box>
-            <FormControl defaultValue="" required>
+            <FormControl defaultValue="">
               <TextField
                 sx={{
                   mb: "1rem",
@@ -133,6 +160,7 @@ const Register = ({
                 type="email"
                 name="email"
                 value={regDetails.email}
+                onChange={handleInputChange}
               />
             </FormControl>
             <FormControl variant="outlined" sx={{ mb: "1rem" }}>
@@ -157,6 +185,7 @@ const Register = ({
                 label="Password"
                 name="password"
                 value={regDetails.password}
+                onChange={handleInputChange}
               />
             </FormControl>
             <FormControl variant="outlined">
@@ -181,9 +210,10 @@ const Register = ({
                 label="Confirm Password"
                 name="confirmPassword"
                 value={regDetails.confirmPassword}
+                onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl defaultValue="" required>
+            <FormControl defaultValue="">
               <TextField
                 sx={{
                   mt: "1rem",
@@ -193,6 +223,9 @@ const Register = ({
                 variant="outlined"
                 placeholder="+254 700 000 000"
                 type="text"
+                onChange={handleInputChange}
+                name="phone"
+                value={regDetails.phone}
               />
             </FormControl>
             <FormControl>
@@ -201,6 +234,7 @@ const Register = ({
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
                 value={regDetails.gender}
+                onChange={handleInputChange}
                 name="gender"
                 sx={{
                   display: "flex",
@@ -209,19 +243,19 @@ const Register = ({
                 }}
               >
                 <FormControlLabel
-                  value={regDetails.gender}
                   control={<Radio />}
                   label="Female"
+                  value={Gender.FEMALE}
                 />
                 <FormControlLabel
-                  value={regDetails.gender}
                   control={<Radio />}
                   label="Male"
+                  value={Gender.MALE}
                 />
                 <FormControlLabel
-                  value={regDetails.gender}
                   control={<Radio />}
                   label="Other"
+                  value={Gender.OTHER}
                 />
               </RadioGroup>
             </FormControl>
@@ -232,10 +266,15 @@ const Register = ({
                   defaultValue={dayjs("2022-04-17")}
                   value={regDetails.dob}
                   name="dob"
+                  onChange={handleInputChange}
                 />
               </DemoContainer>
             </LocalizationProvider>
-            <Button variant="contained" sx={{ mt: "1rem" }}>
+            <Button
+              variant="contained"
+              onClick={handleFormSubmit}
+              sx={{ mt: "1rem" }}
+            >
               Create an Account
             </Button>
           </Box>
