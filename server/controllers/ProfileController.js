@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 export const getUserProfile = async (req, res) => {
   try {
-    const response = await prisma.profile.findMany({});
+    const response = await prisma.user.findMany({});
     res.status(200).json(response);
   } catch (err) {
     res.status(500).json({
@@ -27,7 +27,7 @@ export const createUserProfile = async (req, res) => {
   };
 
   try {
-    const response = await prisma.profile.create({
+    const response = await prisma.user.create({
       data: udata,
     });
     res.status(200).json(response);
@@ -41,13 +41,13 @@ export const createUserProfile = async (req, res) => {
 
 export const loginUserProfile = async (req, res) => {
   const { email, password } = await req.body;
-  const profile = await prisma.profile.findUnique({
+  const response = await prisma.user.findUnique({
     where: {
       email,
     },
   });
-  if (profile) {
-    console.log(profile);
+  if (response) {
+    console.log(response);
     res.status(200).json({
       profile,
     });
