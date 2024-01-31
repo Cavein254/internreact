@@ -69,14 +69,14 @@ const SignIn = ({
         return email;
       }
     };
-    // handleOnChange(email);
+    handleOnChange(email);
     if (error === "") {
-      axios.post("", { email, password }).then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-          // navigate("/dashboard");
-        }
-      });
+      // axios.post("", { email, password }).then((res) => {
+      //   if (res.status === 200) {
+      //     console.log(res.data);
+      //     // navigate("/dashboard");
+      //   }
+      // });
     }
   };
   return (
