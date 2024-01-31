@@ -39,9 +39,19 @@ const SignIn = ({
     event.preventDefault();
   };
 
+  const handleInputChange = (e: any) => {
+    e.preventDefault();
+    const { name, value } = e.target as HTMLInputElement;
+    setsignUp({
+      ...signUp,
+      [name]: value,
+    });
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setError("");
+    console.log(signUp);
     const { email, password } = signUp;
     if (email.length === 0 || password.length === 0) {
       setError("Email and password cannot be empty");
@@ -120,6 +130,8 @@ const SignIn = ({
                 variant="outlined"
                 placeholder="Johndoe@gmail.com"
                 type="email"
+                name="email"
+                onClick={handleFormSubmit}
               />
             </FormControl>
             <FormControl variant="outlined" sx={{ mb: "1rem" }}>
@@ -142,6 +154,8 @@ const SignIn = ({
                   </InputAdornment>
                 }
                 label="Password"
+                name="password"
+                onChange={handleInputChange}
               />
             </FormControl>
             <Button
