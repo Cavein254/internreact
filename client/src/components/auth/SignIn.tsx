@@ -13,7 +13,7 @@ import {
 import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import axios from "aios";
+import axios from "axios";
 
 const SignIn = ({
   login,
