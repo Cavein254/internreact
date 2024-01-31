@@ -74,12 +74,16 @@ const SignIn = ({
       axios
         .post("/api/profile/login", { email, password })
         .then((res) => {
-          if (res.status === 200) {
-            console.log(res.data);
-            // navigate("/dashboard");
+          const { status, payload } = res.data;
+          if (status !== 200) {
+            console.log("-----------------");
+            console.log(payload);
+            setError(payload);
           }
         })
-        .catch((e) => console.log(e));
+        .catch((e) => {
+          setError("Unable to connect to server");
+        });
     }
   };
   return (

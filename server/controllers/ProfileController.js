@@ -46,10 +46,20 @@ export const loginUserProfile = async (req, res) => {
       email,
     },
   });
-  if (response) {
-    console.log(response);
-    res.status(200).json({
-      profile,
+  console.log(response);
+  if (!response) {
+    res.json({
+      status: 500,
+      msg: "This email is not registed. Please create an account",
+    });
+    return;
+  }
+  const { password: hash } = await response;
+  if (!bcrypt.compareSync(password, hash)) {
+    res.json({
+      status: 500,
+      msg: "Incorrect Password",
     });
   }
+  res.status(200).json(response);
 };
