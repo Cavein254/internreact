@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import axios from "aios";
 
 const SignIn = ({
   login,
@@ -20,6 +22,13 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
+  const [signUp, setsignUp] = React.useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = React.useState("");
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -28,6 +37,37 @@ const SignIn = ({
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    const { email, password } = signUp;
+    if (email.length === 0 || password.length === 0) {
+      setError("Email and password cannot be empty");
+      return;
+    }
+    const handleOnChange = (email: string) => {
+      //eslint-disable-next-line
+      const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      if (!re.test(email)) {
+        setError("Invalid Email");
+        return;
+      } else {
+        return email;
+      }
+    };
+    handleOnChange(email);
+    if (error === "") {
+      axios.post("", { email, password }).then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          // navigate("/dashboard");
+        }
+      });
+    }
   };
   return (
     <Grid item xs={12} md={6}>
