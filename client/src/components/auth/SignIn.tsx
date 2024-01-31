@@ -144,8 +144,12 @@ const SignIn = ({
                 label="Password"
               />
             </FormControl>
-            <Button variant="contained" sx={{ mt: "1rem" }}>
-              Create an Account
+            <Button
+              variant="contained"
+              sx={{ mt: "1rem" }}
+              onClick={handleFormSubmit}
+            >
+              Sign In
             </Button>
           </Box>
         </form>
