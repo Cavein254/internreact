@@ -76,10 +76,9 @@ const SignIn = ({
         .then((res) => {
           const { status, payload } = res.data;
           if (status !== 200) {
-            console.log("-----------------");
-            console.log(payload);
             setError(payload);
           }
+          navigate("/dashboard");
         })
         .catch((e) => {
           setError("Unable to connect to server");
