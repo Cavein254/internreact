@@ -50,7 +50,7 @@ export const loginUserProfile = async (req, res) => {
   if (!response) {
     res.json({
       status: 500,
-      msg: "This email is not registed. Please create an account",
+      payload: "This email is not registed. Please create an account",
     });
     return;
   }
@@ -58,8 +58,11 @@ export const loginUserProfile = async (req, res) => {
   if (!bcrypt.compareSync(password, hash)) {
     res.json({
       status: 500,
-      msg: "Incorrect Password",
+      payload: "Incorrect Password",
     });
   }
-  res.status(200).json(response);
+  res.json({
+    status: 200,
+    payload: response,
+  });
 };
