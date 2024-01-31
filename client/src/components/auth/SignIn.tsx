@@ -71,6 +71,17 @@ const SignIn = ({
   };
   return (
     <Grid item xs={12} md={6}>
+      {error && (
+        <Typography
+          variant="h6"
+          sx={{
+            color: "red",
+            fontSize: "0.8rem",
+          }}
+        >
+          {error}
+        </Typography>
+      )}
       <Box>
         <Box>
           <Typography
