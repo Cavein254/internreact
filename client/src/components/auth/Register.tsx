@@ -22,6 +22,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Gender, RegisterDetails } from "./types";
+import axios from "axios";
 
 const Register = ({
   login,
@@ -62,6 +63,7 @@ const Register = ({
 
   const handleFormSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
+    setError("");
     const {
       fName,
       lName,
@@ -92,9 +94,11 @@ const Register = ({
       email,
       password,
       gender,
+      phone,
       dob: nDob,
     };
     const handleOnChange = (email: string) => {
+      //eslint-disable-next-line
       const re =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -103,8 +107,11 @@ const Register = ({
       }
     };
     handleOnChange(email);
-    if (error !== "") {
-      console.log(nData);
+    if (error === "") {
+      axios
+        .post("/api/profile", nData)
+        .then((res) => console.log(res.data))
+        .catch((e) => console.log(e));
     }
   };
   return (
