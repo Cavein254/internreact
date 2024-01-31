@@ -95,7 +95,7 @@ const Register = ({
       password,
       gender,
       phone,
-      dob: nDob,
+      dob: new Date(nDob),
     };
     const handleOnChange = (email: string) => {
       //eslint-disable-next-line
