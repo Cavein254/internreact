@@ -71,12 +71,15 @@ const SignIn = ({
     };
     handleOnChange(email);
     if (error === "") {
-      // axios.post("", { email, password }).then((res) => {
-      //   if (res.status === 200) {
-      //     console.log(res.data);
-      //     // navigate("/dashboard");
-      //   }
-      // });
+      axios
+        .post("/api/profile/login", { email, password })
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res.data);
+            // navigate("/dashboard");
+          }
+        })
+        .catch((e) => console.log(e));
     }
   };
   return (

@@ -109,7 +109,7 @@ const Register = ({
     handleOnChange(email);
     if (error === "") {
       axios
-        .post("/api/profile", nData)
+        .post("/api/profile/create", nData)
         .then((res) => {
           if (res.status === 200) {
             console.log(res.data);

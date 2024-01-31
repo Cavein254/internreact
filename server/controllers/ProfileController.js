@@ -41,7 +41,7 @@ export const createUserProfile = async (req, res) => {
 
 export const loginUserProfile = async (req, res) => {
   const { email, password } = await req.body;
-  const profile = await prisma.profile.findOne({
+  const profile = await prisma.profile.findUnique({
     where: {
       email,
     },
