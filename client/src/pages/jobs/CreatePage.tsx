@@ -1,4 +1,3 @@
-import React from "react";
 import CreateJob from "../../components/dashboard/job/CreateJob";
 
 const CreatePage = () => {
