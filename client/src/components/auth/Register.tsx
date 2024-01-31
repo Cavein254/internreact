@@ -110,7 +110,12 @@ const Register = ({
     if (error === "") {
       axios
         .post("/api/profile", nData)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res.data);
+            setLogin(true);
+          }
+        })
         .catch((e) => console.log(e));
     }
   };
