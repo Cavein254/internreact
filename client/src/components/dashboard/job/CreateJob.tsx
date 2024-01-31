@@ -1,4 +1,3 @@
-"use client";
 import { CustomTextField } from "../../missilenious/TextFieldItems";
 import {
   Box,
@@ -15,6 +14,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
 import { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 // import "react-quill/dist/quill.snow.css";
 
 const CreateJob = () => {
