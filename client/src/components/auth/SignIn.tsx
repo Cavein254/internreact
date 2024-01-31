@@ -69,7 +69,7 @@ const SignIn = ({
         return email;
       }
     };
-    handleOnChange(email);
+    // handleOnChange(email);
     if (error === "") {
       axios.post("", { email, password }).then((res) => {
         if (res.status === 200) {
@@ -131,7 +131,8 @@ const SignIn = ({
                 placeholder="Johndoe@gmail.com"
                 type="email"
                 name="email"
-                onClick={handleFormSubmit}
+                value={signUp.email}
+                onChange={handleInputChange}
               />
             </FormControl>
             <FormControl variant="outlined" sx={{ mb: "1rem" }}>
@@ -155,6 +156,7 @@ const SignIn = ({
                 }
                 label="Password"
                 name="password"
+                value={signUp.password}
                 onChange={handleInputChange}
               />
             </FormControl>
