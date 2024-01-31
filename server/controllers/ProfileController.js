@@ -38,3 +38,18 @@ export const createUserProfile = async (req, res) => {
     });
   }
 };
+
+export const loginUserProfile = async (req, res) => {
+  const { email, password } = await req.body;
+  const profile = await prisma.profile.findOne({
+    where: {
+      email,
+    },
+  });
+  if (profile) {
+    console.log(profile);
+    res.status(200).json({
+      profile,
+    });
+  }
+};
