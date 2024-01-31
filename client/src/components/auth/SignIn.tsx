@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignIn = ({
   login,
@@ -20,6 +22,13 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
+  const [signUp, setsignUp] = React.useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = React.useState("");
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -29,8 +38,67 @@ const SignIn = ({
   ) => {
     event.preventDefault();
   };
+
+  const handleInputChange = (e: any) => {
+    e.preventDefault();
+    const { name, value } = e.target as HTMLInputElement;
+    setsignUp({
+      ...signUp,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    console.log(signUp);
+    const { email, password } = signUp;
+    if (email.length === 0 || password.length === 0) {
+      setError("Email and password cannot be empty");
+      return;
+    }
+    const handleOnChange = (email: string) => {
+      //eslint-disable-next-line
+      const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      if (!re.test(email)) {
+        setError("Invalid Email");
+        return;
+      } else {
+        return email;
+      }
+    };
+    handleOnChange(email);
+    if (error === "") {
+      axios
+        .post("/api/profile/login", { email, password })
+        .then((res) => {
+          const { status, payload } = res.data;
+          if (status !== 200) {
+            setError(payload);
+            return;
+          }
+          navigate("/dashboard");
+        })
+        .catch((e) => {
+          setError("Unable to connect to server");
+        });
+    }
+  };
   return (
     <Grid item xs={12} md={6}>
+      {error && (
+        <Typography
+          variant="h6"
+          sx={{
+            color: "red",
+            fontSize: "0.8rem",
+          }}
+        >
+          {error}
+        </Typography>
+      )}
       <Box>
         <Box>
           <Typography
@@ -69,6 +137,9 @@ const SignIn = ({
                 variant="outlined"
                 placeholder="Johndoe@gmail.com"
                 type="email"
+                name="email"
+                value={signUp.email}
+                onChange={handleInputChange}
               />
             </FormControl>
             <FormControl variant="outlined" sx={{ mb: "1rem" }}>
@@ -91,10 +162,17 @@ const SignIn = ({
                   </InputAdornment>
                 }
                 label="Password"
+                name="password"
+                value={signUp.password}
+                onChange={handleInputChange}
               />
             </FormControl>
-            <Button variant="contained" sx={{ mt: "1rem" }}>
-              Create an Account
+            <Button
+              variant="contained"
+              sx={{ mt: "1rem" }}
+              onClick={handleFormSubmit}
+            >
+              Sign In
             </Button>
           </Box>
         </form>

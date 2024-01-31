@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 export const getUserProfile = async (req, res) => {
   try {
-    const response = await prisma.profile.findMany({});
+    const response = await prisma.user.findMany({});
     res.status(200).json(response);
   } catch (err) {
     res.status(500).json({
@@ -27,7 +27,7 @@ export const createUserProfile = async (req, res) => {
   };
 
   try {
-    const response = await prisma.profile.create({
+    const response = await prisma.user.create({
       data: udata,
     });
     res.status(200).json(response);
@@ -37,4 +37,30 @@ export const createUserProfile = async (req, res) => {
       msg: "error",
     });
   }
+};
+
+export const loginUserProfile = async (req, res) => {
+  const { email, password } = await req.body;
+  const response = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (!response) {
+    return res.json({
+      status: 500,
+      payload: "This email is not registed. Please create an account",
+    });
+  }
+  const { password: hash } = await response;
+  if (!bcrypt.compareSync(password, hash)) {
+    return res.json({
+      status: 500,
+      payload: "Incorrect Password",
+    });
+  }
+  return res.json({
+    status: 200,
+    payload: response,
+  });
 };

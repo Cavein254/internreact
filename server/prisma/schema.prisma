@@ -15,13 +15,66 @@ enum Gender {
   FEMALE
   OTHER
 }
-model Profile {
-  id      String      @id @default(cuid())
-  fName String
-  lName String
-  email String
+
+model User {
+  id       String   @id @default(cuid())
+  fName    String
+  lName    String
+  email    String   @unique
   password String
-  gender Gender @default(FEMALE)
-  phone String
-  dob String
+  gender   Gender   @default(FEMALE)
+  phone    String
+  dob      DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile Profile?
+  job     Job[]
+}
+
+enum JobType {
+  PERMANENT
+  TEMPORARY
+  CONTRACT
+  INTERNSHIP
+}
+
+enum LocationType {
+  HYBRID
+  ONSITE
+  REMOTE
+}
+
+enum Engagement {
+  FULLTIME
+  PARTTIME
+  PIECEWORK
+}
+
+model Job {
+  id           String       @id @default(cuid())
+  title        String
+  jobType      JobType      @default(TEMPORARY)
+  locationType LocationType @default(ONSITE)
+  industry     String?
+  engagement   Engagement   @default(FULLTIME)
+  salary       String?
+  description  String?
+
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Profile {
+  id     String  @id @default(cuid())
+  userId String  @unique
+  name   String?
+  email  String?
+  image  String?
+  user   User    @relation(fields: [userId], references: [id])
 }

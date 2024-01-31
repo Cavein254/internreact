@@ -95,7 +95,7 @@ const Register = ({
       password,
       gender,
       phone,
-      dob: nDob,
+      dob: new Date(nDob),
     };
     const handleOnChange = (email: string) => {
       //eslint-disable-next-line
@@ -109,8 +109,12 @@ const Register = ({
     handleOnChange(email);
     if (error === "") {
       axios
-        .post("/api/profile", nData)
-        .then((res) => console.log(res.data))
+        .post("/api/profile/create", nData)
+        .then((res) => {
+          if (res.status === 200) {
+            setLogin(true);
+          }
+        })
         .catch((e) => console.log(e));
     }
   };
