@@ -77,6 +77,7 @@ const SignIn = ({
           const { status, payload } = res.data;
           if (status !== 200) {
             setError(payload);
+            return;
           }
           navigate("/dashboard");
         })

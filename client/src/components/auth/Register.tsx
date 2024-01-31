@@ -112,7 +112,6 @@ const Register = ({
         .post("/api/profile/create", nData)
         .then((res) => {
           if (res.status === 200) {
-            console.log(res.data);
             setLogin(true);
           }
         })
