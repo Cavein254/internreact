@@ -14,12 +14,15 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { UserContext } from "../../../context/userContext";
 
 const CreateJob = () => {
-  const session = null;
+  const { user } = useContext(UserContext);
+  console.log("jjfjfjfjfj");
+  console.log(user);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [engagement, setEngagement] = useState("FULLTIME");
@@ -56,13 +59,13 @@ const CreateJob = () => {
       engagement,
       description,
       expiresAt: myDate(),
-      userId: session?.userId,
+      userId: user?.id,
     };
     axios
       .post("/api/job/new", data)
       .then((response) => {
         if (response.status === 200) {
-          window.location.replace("/dashboard");
+          console.log(response.data);
         } else {
           setError("An Error occured saving data to the database");
         }
