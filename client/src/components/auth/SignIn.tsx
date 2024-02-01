@@ -23,7 +23,7 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
-  const { user, setUser } = useAuth();
+  // const { setUser } = useAuth();
   const [signUp, setsignUp] = React.useState({
     email: "",
     password: "",
@@ -81,6 +81,7 @@ const SignIn = ({
             setError(payload);
             return;
           }
+          console.log(payload);
           navigate("/dashboard");
         })
         .catch((e) => {
