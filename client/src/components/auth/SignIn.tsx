@@ -14,6 +14,7 @@ import React from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../context/userContext";
 
 const SignIn = ({
   login,
@@ -22,6 +23,7 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
+  const { user, setUser } = useAuth();
   const [signUp, setsignUp] = React.useState({
     email: "",
     password: "",

@@ -1,4 +1,5 @@
 import { CustomTextField } from "../../missilenious/TextFieldItems";
+import axios from "axios";
 import {
   Box,
   Button,
@@ -57,13 +58,8 @@ const CreateJob = () => {
       expiresAt: myDate(),
       userId: session?.userId,
     };
-    fetch("/api/job/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    axios
+      .post("/api/job/new", data)
       .then((response) => {
         if (response.status === 200) {
           window.location.replace("/dashboard");
