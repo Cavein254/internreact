@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,7 +23,7 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
-  const { setUser } = UserContext();
+  const { setUser } = useContext(UserContext);
   const [signUp, setsignUp] = React.useState({
     email: "",
     password: "",
@@ -78,10 +78,9 @@ const SignIn = ({
         .then((res) => {
           const { status, payload } = res.data;
           if (status !== 200) {
-            setError(payload);
             return;
           }
-          console.log(payload);
+          setUser(payload);
           navigate("/dashboard");
         })
         .catch((e) => {

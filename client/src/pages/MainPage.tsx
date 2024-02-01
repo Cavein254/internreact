@@ -12,14 +12,14 @@ const MainPage = () => {
   return (
     <div>
       <Header />
-      <Hero />
+      {/* <Hero />
       <About />
       <Services />
       <Statistics />
       <Testimonials />
       <Team />
       <Subscribe />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

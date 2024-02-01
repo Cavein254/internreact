@@ -5,8 +5,9 @@ import axios from "axios";
 import "./styles.css";
 import SearchOverlay from "../searchoverlay/SearchOverlay";
 import { AiFillFilter } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Job from "./job/Job";
+import { UserContext } from "../../context/userContext";
 
 interface ItemProps {
   title: string | null;
@@ -18,6 +19,8 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
+  const { user } = useContext(UserContext);
+  console.log({ "user from context": user });
   const [jobs, setJobs] = useState([]);
   const session = null;
 

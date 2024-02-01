@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
+
 import { AuthUser } from "../types";
 
 export const UserContext = createContext<AuthUser | null>(null);
@@ -14,6 +15,5 @@ export default function UserContextProvider({
     user,
     setUser,
   };
-
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
