@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Button, Card, Typography } from "@mui/material";
 import axios from "axios";
 import "./styles.css";
@@ -19,13 +17,13 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
-  const session = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [jobs, setJobs] = useState([]);
-
   const fetchJobs = async () => {
     const response = await axios
       .get("/api/job")
-      .then((res) => setJobs(res.data));
+      .then((res) => setJobs(res.data))
+      .catch((e) => console.log(e));
     return response;
   };
   useEffect(() => {
@@ -116,7 +114,7 @@ const Dashboard = () => {
           }}
         >
           {" "}
-          {session?.role === "EMPLOYER" && (
+          {user?.role === "EMPLOYER" && (
             <Button variant="contained">
               <a href="/employer/job/create">
                 <Typography
