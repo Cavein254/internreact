@@ -19,10 +19,8 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
-  const { user } = useContext(UserContext);
-  console.log({ "user from context": user });
+  const session = useContext(UserContext);
   const [jobs, setJobs] = useState([]);
-  const session = null;
 
   const fetchJobs = async () => {
     const response = await axios
@@ -118,7 +116,7 @@ const Dashboard = () => {
           }}
         >
           {" "}
-          {session?.position === "EMPLOYER" && (
+          {session?.role === "EMPLOYER" && (
             <Button variant="contained">
               <a href="/employer/job/create">
                 <Typography

@@ -78,6 +78,7 @@ const SignIn = ({
         .then((res) => {
           const { status, payload } = res.data;
           if (status !== 200) {
+            setError(payload);
             return;
           }
           setUser(payload);

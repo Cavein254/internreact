@@ -58,6 +58,7 @@ enum Role {
   USER
   MANAGER
   MODERATOR
+  EMPLOYER
 }
 
 model Job {
