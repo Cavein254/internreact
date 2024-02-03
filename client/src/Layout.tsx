@@ -1,12 +1,13 @@
-import React from "react";
-import UserContextProvider from "./context/userContext.tsx";
 import { Outlet } from "react-router-dom";
-const Layout = () => {
+import UserContextProvider from "./context/userContext";
+const MainLayout = () => {
   return (
-    <UserContextProvider>
-      <Outlet />
-    </UserContextProvider>
+    <main>
+      <UserContextProvider>
+        <Outlet />
+      </UserContextProvider>
+    </main>
   );
 };
 
-export default Layout;
+export default MainLayout;
