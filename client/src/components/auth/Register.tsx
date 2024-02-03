@@ -23,6 +23,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Gender, RegisterDetails } from "./types";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = ({
   login,
@@ -104,6 +105,8 @@ const Register = ({
 
       if (!re.test(email)) {
         setError("Invalid Email");
+        toast.warning("Invalid Email");
+        return;
       }
     };
     handleOnChange(email);
@@ -112,6 +115,7 @@ const Register = ({
         .post("/api/profile/new", nData)
         .then((res) => {
           if (res.status === 200) {
+            toast.success("success");
             setLogin(true);
           }
         })
