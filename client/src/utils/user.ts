@@ -1,14 +1,13 @@
-export const getUser = async () => {
-  const data = await localStorage.getItem("appUser");
+export const getUser = () => {
+  const data = localStorage.getItem("appUser");
   if (data) {
-    const user = await JSON.parse(data);
+    const user = JSON.parse(data);
     return user;
   }
   return null;
 };
 
-export const saveUser = async (data) => {
-  const uData = await JSON.stringify(data);
-  await localStorage.setItem("appUser", uData);
-  return;
+export const saveUser = (data) => {
+  const uData = JSON.stringify(data);
+  return localStorage.setItem("appUser", uData);
 };

@@ -3,9 +3,8 @@ import axios from "axios";
 import "./styles.css";
 import SearchOverlay from "../searchoverlay/SearchOverlay";
 import { AiFillFilter } from "react-icons/ai";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Job from "./job/Job";
-import { UserContext } from "../../context/userContext";
 import { getUser } from "../../utils/user";
 
 interface ItemProps {
@@ -18,8 +17,8 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
-  console.log("The user is here");
   const user = getUser();
+  console.log(user);
   const [jobs, setJobs] = useState([]);
   const fetchJobs = async () => {
     const response = await axios
