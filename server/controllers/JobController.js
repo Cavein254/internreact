@@ -16,7 +16,11 @@ export const createJob = async (req, res) => {
 
 export const getJobs = async (req, res) => {
   try {
-    const response = await prisma.job.findMany({});
+    const response = await prisma.job.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
     return res.status(200).json(response);
   } catch (err) {
     console.log(err);
