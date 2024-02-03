@@ -14,10 +14,9 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { UserContext } from "../../../context/userContext";
 import { getUser } from "../../../utils/user";
 
 const CreateJob = () => {
@@ -64,7 +63,8 @@ const CreateJob = () => {
       .post("/api/job/new", data)
       .then((response) => {
         if (response.status === 200) {
-          console.log(response.data);
+          console.log("redirecting");
+          return window.location.replace("/dashboard");
         } else {
           setError("An Error occured saving data to the database");
         }

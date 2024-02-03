@@ -8,10 +8,10 @@ export const createJob = async (req, res) => {
     });
     console.log("000000000000");
     console.log(response);
-    res.status(200).json(response);
+    return res.status(200).json(response);
   } catch (err) {
     console.log(err);
-    res.status(500).json({
+    return res.status(500).json({
       msg: "error",
       error: err,
     });
