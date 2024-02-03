@@ -117,7 +117,7 @@ const Dashboard = () => {
           {" "}
           {user?.role === "EMPLOYER" && (
             <Button variant="contained">
-              <a href="job/create">
+              <a href="job/new">
                 <Typography
                   sx={{
                     color: "white",
