@@ -11,7 +11,6 @@ import Statistics from "../components/statistics/Statistics";
 const MainPage = () => {
   return (
     <div>
-      <Header />
       <Hero />
       <About />
       <Services />

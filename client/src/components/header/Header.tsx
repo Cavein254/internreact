@@ -16,6 +16,7 @@ import Overlay from "../overlay/Overlay";
 import { HeaderLinks } from "./LinkData";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { getUser } from "../../utils/user";
 
 const StyledSignUp = styled(Button)`
   background-color: #ff6600;
@@ -30,7 +31,7 @@ const StyledSignUp = styled(Button)`
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const session = null;
+  const session = getUser();
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -74,54 +75,53 @@ const Header = () => {
           <Box className="header-links-wrapper">{linkNavs}</Box>
         </Box>
         {session ? (
-          // <Box sx={{ flexGrow: 0 }}>
-          //   <Tooltip title="Open settings">
-          //     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          //       <Avatar alt="Remy Sharp" src={session} />
-          //     </IconButton>
-          //   </Tooltip>
-          //   <Menu
-          //     sx={{ mt: "45px" }}
-          //     id="menu-appbar"
-          //     anchorEl={anchorElUser}
-          //     anchorOrigin={{
-          //       vertical: "top",
-          //       horizontal: "right",
-          //     }}
-          //     keepMounted
-          //     transformOrigin={{
-          //       vertical: "top",
-          //       horizontal: "right",
-          //     }}
-          //     open={Boolean(anchorElUser)}
-          //     onClose={handleCloseUserMenu}
-          //   >
-          //     <MenuItem>
-          //       <Typography textAlign="center">
-          //         <a href="/dashboard">Available Jobs</a>
-          //       </Typography>
-          //     </MenuItem>
-          //     {session === "ADMIN" && (
-          //       <MenuItem>
-          //         <Typography textAlign="center">Admin</Typography>
-          //       </MenuItem>
-          //     )}
-          //     {session === "EMPLOYER" && (
-          //       <MenuItem>
-          //         <Typography textAlign="center">
-          //           <a href="/employer/job/create">Create Job</a>
-          //         </Typography>
-          //       </MenuItem>
-          //     )}
-          //     <MenuItem>
-          //       <Typography textAlign="center">Logout</Typography>
-          //     </MenuItem>
-          //   </Menu>
-          // </Box>
-          <h1>True</h1>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src={session} />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem>
+                <Typography textAlign="center">
+                  <a href="/dashboard">Available Jobs</a>
+                </Typography>
+              </MenuItem>
+              {session === "ADMIN" && (
+                <MenuItem>
+                  <Typography textAlign="center">Admin</Typography>
+                </MenuItem>
+              )}
+              {session === "EMPLOYER" && (
+                <MenuItem>
+                  <Typography textAlign="center">
+                    <a href="/employer/job/create">Create Job</a>
+                  </Typography>
+                </MenuItem>
+              )}
+              <MenuItem>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
+            </Menu>
+          </Box>
         ) : (
           <Box className="header-btns">
-            {/* <Box>
+            <Box>
               <a href="/signin" className="header-link">
                 <Button
                   variant="text"
@@ -134,7 +134,7 @@ const Header = () => {
                   Log In
                 </Button>
               </a>
-            </Box> */}
+            </Box>
             <Box>
               <Link to="/auth" className="header-link">
                 <StyledSignUp variant="contained">
