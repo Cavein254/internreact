@@ -32,7 +32,7 @@ const JobItem = () => {
   return (
     <Box
       sx={{
-        margin: "4rem",
+        margin: "2rem",
       }}
     >
       <Box

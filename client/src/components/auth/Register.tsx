@@ -110,7 +110,9 @@ const Register = ({
       }
     };
     handleOnChange(email);
-    if (error === "") {
+    if (error !== "") {
+      return;
+    } else {
       axios
         .post("/api/profile/new", nData)
         .then((res) => {

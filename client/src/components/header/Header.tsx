@@ -122,7 +122,7 @@ const Header = () => {
         ) : (
           <Box className="header-btns">
             <Box>
-              <a href="/signin" className="header-link">
+              {/* <a href="/signin" className="header-link">
                 <Button
                   variant="text"
                   className="header-login-btn"
@@ -133,7 +133,7 @@ const Header = () => {
                 >
                   Log In
                 </Button>
-              </a>
+              </a> */}
             </Box>
             <Box>
               <Link to="/auth" className="header-link">
