@@ -6,6 +6,7 @@ import { AiFillFilter } from "react-icons/ai";
 import { useContext, useEffect, useState } from "react";
 import Job from "./job/Job";
 import { UserContext } from "../../context/userContext";
+import { getUser } from "../../utils/user";
 
 interface ItemProps {
   title: string | null;
@@ -17,7 +18,8 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
-  const { user } = useContext(UserContext);
+  console.log("The user is here");
+  const user = getUser();
   const [jobs, setJobs] = useState([]);
   const fetchJobs = async () => {
     const response = await axios

@@ -15,6 +15,8 @@ import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
+import { Form } from "react-router-dom";
+import { saveUser } from "../../utils/user";
 
 const SignIn = ({
   login,
@@ -23,7 +25,7 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
-  const { setUser } = useContext(UserContext);
+  const { setUser, user } = useContext(UserContext);
   const [signUp, setsignUp] = React.useState({
     email: "",
     password: "",
@@ -82,6 +84,7 @@ const SignIn = ({
             return;
           }
           setUser(payload);
+          saveUser(payload);
           navigate("/dashboard");
         })
         .catch((e) => {
@@ -122,7 +125,7 @@ const SignIn = ({
             Glad to have you Back!
           </Typography>
         </Box>
-        <form>
+        <Box>
           <Box
             sx={{
               display: "flex",
@@ -178,7 +181,7 @@ const SignIn = ({
               Sign In
             </Button>
           </Box>
-        </form>
+        </Box>
         <Box
           sx={{
             mt: "1rem",

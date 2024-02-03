@@ -18,10 +18,10 @@ import { useContext, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { UserContext } from "../../../context/userContext";
+import { getUser } from "../../../utils/user";
 
 const CreateJob = () => {
-  const { user } = useContext(UserContext);
-  console.log("jjfjfjfjfj");
+  const user = getUser();
   console.log(user);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -45,7 +45,6 @@ const CreateJob = () => {
     e.preventDefault();
     setEngagement(e.target.value);
   };
-
   const myDate = () => {
     const newDate = dayjs(expiresAt).format("MM/DD/YYYY");
     return new Date(newDate);
