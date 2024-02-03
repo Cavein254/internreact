@@ -22,7 +22,7 @@ const Dashboard = () => {
   const [jobs, setJobs] = useState([]);
   const fetchJobs = async () => {
     const response = await axios
-      .get("/api/job")
+      .get("/api/jobs")
       .then((res) => setJobs(res.data))
       .catch((e) => console.log(e));
     return response;

@@ -13,3 +13,16 @@ export const createJob = async (req, res) => {
     });
   }
 };
+
+export const getJobs = async (req, res) => {
+  try {
+    const response = await prisma.job.findMany({});
+    return res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      msg: "error",
+      error: err,
+    });
+  }
+};
