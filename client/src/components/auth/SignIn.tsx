@@ -81,7 +81,7 @@ const SignIn = ({
         .then((res) => {
           const { status, payload } = res.data;
           if (status !== 200) {
-            toast.warning(payload);
+            toast.error(payload);
             setError(payload);
             return;
           }
@@ -91,7 +91,7 @@ const SignIn = ({
           navigate("/dashboard");
         })
         .catch((e) => {
-          toast.warning("Unable to connect to server");
+          toast.error("Unable to connect to server");
           setError("Unable to connect to server");
         });
     }

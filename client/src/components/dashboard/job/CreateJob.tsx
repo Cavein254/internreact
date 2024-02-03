@@ -19,8 +19,10 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { getUser } from "../../../utils/user";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CreateJob = () => {
+  const navigate = useNavigate();
   const user = getUser();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -64,7 +66,7 @@ const CreateJob = () => {
       .then((response) => {
         if (response.status === 200) {
           toast.success("Successfully Added a New Job");
-          return window.location.replace("/dashboard");
+          navigate("/dashboard");
         } else {
           toast.warning("An Error occured saving data to the database");
           setError("An Error occured saving data to the database");

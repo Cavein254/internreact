@@ -5,7 +5,11 @@ import {
   loginUserProfile,
 } from "../controllers/ProfileController.js";
 
-import { createJob, getJobs } from "../controllers/JobController.js";
+import {
+  createJob,
+  getJobDetails,
+  getJobs,
+} from "../controllers/JobController.js";
 
 const router = express.Router();
 
@@ -14,5 +18,6 @@ router.post("/api/profile/new", createUserProfile);
 router.post("/api/profile/login", loginUserProfile);
 router.post("/api/job/new", createJob);
 router.get("/api/jobs", getJobs);
+router.post("/api/job-details", getJobDetails);
 
 export default router;

@@ -6,6 +6,7 @@ import Dashboard from "./components/dashboard/Dashboard.tsx";
 import CreateJob from "./components/dashboard/job/CreateJob.tsx";
 import App from "./App.tsx";
 import MainLayout from "./Layout.tsx";
+import JobItem from "./pages/jobs/JobItem.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "job/new",
         element: <CreateJob />,
+      },
+      {
+        path: "job/:id",
+        element: <JobItem />,
       },
     ],
   },

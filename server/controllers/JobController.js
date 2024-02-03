@@ -30,3 +30,21 @@ export const getJobs = async (req, res) => {
     });
   }
 };
+
+export const getJobDetails = async (req, res) => {
+  const { id } = await req.body;
+  try {
+    const response = await prisma.job.findUnique({
+      where: {
+        id,
+      },
+    });
+    return res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      msg: "error",
+      error: err,
+    });
+  }
+};
