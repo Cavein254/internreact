@@ -21,7 +21,6 @@ import { getUser } from "../../../utils/user";
 
 const CreateJob = () => {
   const user = getUser();
-  console.log(user);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [engagement, setEngagement] = useState("FULLTIME");
@@ -63,7 +62,6 @@ const CreateJob = () => {
       .post("/api/job/new", data)
       .then((response) => {
         if (response.status === 200) {
-          console.log("redirecting");
           return window.location.replace("/dashboard");
         } else {
           setError("An Error occured saving data to the database");

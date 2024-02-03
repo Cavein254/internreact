@@ -18,7 +18,6 @@ interface ItemProps {
 
 const Dashboard = () => {
   const user = getUser();
-  console.log(user);
   const [jobs, setJobs] = useState([]);
   const fetchJobs = async () => {
     const response = await axios
