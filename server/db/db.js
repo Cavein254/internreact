@@ -1,5 +1,5 @@
 // prisma.js (Singleton)
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 
 let prisma;
 
@@ -12,4 +12,4 @@ if (process.env.NODE_ENV === "production") {
   prisma = global.prisma;
 }
 
-export default prisma;
+module.exports = prisma;

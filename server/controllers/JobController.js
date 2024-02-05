@@ -1,4 +1,4 @@
-export const createJob = async (req, res) => {
+const createJob = async (req, res) => {
   const data = await req.body;
   try {
     const response = await prisma.job.create({
@@ -14,7 +14,7 @@ export const createJob = async (req, res) => {
   }
 };
 
-export const getJobs = async (req, res) => {
+const getJobs = async (req, res) => {
   try {
     const response = await prisma.job.findMany({
       orderBy: {
@@ -31,7 +31,7 @@ export const getJobs = async (req, res) => {
   }
 };
 
-export const getJobDetails = async (req, res) => {
+const getJobDetails = async (req, res) => {
   const { id } = await req.body;
   try {
     const response = await prisma.job.findUnique({
@@ -47,4 +47,10 @@ export const getJobDetails = async (req, res) => {
       error: err,
     });
   }
+};
+
+module.exports = {
+  getJobDetails,
+  getJobs,
+  createJob,
 };

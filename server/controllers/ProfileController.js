@@ -1,7 +1,7 @@
-import prisma from "../db/db.js";
-import bcrypt from "bcrypt";
+const prisma = require("../db/db.js");
+const bcrypt = require("bcrypt");
 
-export const getUserProfile = async (req, res) => {
+const getUserProfile = async (req, res) => {
   try {
     const response = await prisma.user.findMany({});
     res.status(200).json(response);
@@ -13,7 +13,7 @@ export const getUserProfile = async (req, res) => {
   }
 };
 
-export const createUserProfile = async (req, res) => {
+const createUserProfile = async (req, res) => {
   const { fName, lName, email, gender, phone, dob, password } = await req.body;
   const hash = await bcrypt.hashSync(password, 10);
   const udata = {
@@ -39,7 +39,7 @@ export const createUserProfile = async (req, res) => {
   }
 };
 
-export const loginUserProfile = async (req, res) => {
+const loginUserProfile = async (req, res) => {
   const { email, password } = await req.body;
   const response = await prisma.user.findUnique({
     where: {
@@ -63,4 +63,10 @@ export const loginUserProfile = async (req, res) => {
     status: 200,
     payload: response,
   });
+};
+
+module.exports = {
+  loginUserProfile,
+  createUserProfile,
+  getUserProfile,
 };

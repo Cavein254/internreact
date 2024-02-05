@@ -1,15 +1,15 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   createUserProfile,
   getUserProfile,
   loginUserProfile,
-} from "../controllers/ProfileController.js";
+} = require("../controllers/ProfileController.js");
 
-import {
+const {
   createJob,
   getJobDetails,
   getJobs,
-} from "../controllers/JobController.js";
+} = require("../controllers/JobController.js");
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.post("/api/job/new", createJob);
 router.get("/api/jobs", getJobs);
 router.post("/api/job-details", getJobDetails);
 
-export default router;
+module.exports = router;

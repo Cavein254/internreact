@@ -1,6 +1,7 @@
-import express from "express";
-import dotenv from "dotenv";
-import ProfileRoute from "./routes/ProfileRoute.js";
+const express = require("express");
+const dotenv = require("dotenv");
+
+const ProfileRoute = require("./routes/ProfileRoute.js");
 
 dotenv.config();
 
