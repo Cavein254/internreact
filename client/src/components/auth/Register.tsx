@@ -14,7 +14,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import dayjs from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -23,6 +23,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Gender, RegisterDetails } from "./types";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = ({
   login,
@@ -104,14 +105,19 @@ const Register = ({
 
       if (!re.test(email)) {
         setError("Invalid Email");
+        toast.warning("Invalid Email");
+        return;
       }
     };
     handleOnChange(email);
-    if (error === "") {
+    if (error !== "") {
+      return;
+    } else {
       axios
-        .post("/api/profile/create", nData)
+        .post("/api/profile/new", nData)
         .then((res) => {
           if (res.status === 200) {
+            toast.success("success");
             setLogin(true);
           }
         })

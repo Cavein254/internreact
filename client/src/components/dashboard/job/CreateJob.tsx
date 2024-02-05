@@ -1,4 +1,5 @@
 import { CustomTextField } from "../../missilenious/TextFieldItems";
+import axios from "axios";
 import {
   Box,
   Button,
@@ -16,9 +17,13 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { getUser } from "../../../utils/user";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CreateJob = () => {
-  const session = null;
+  const navigate = useNavigate();
+  const user = getUser();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [engagement, setEngagement] = useState("FULLTIME");
@@ -41,7 +46,6 @@ const CreateJob = () => {
     e.preventDefault();
     setEngagement(e.target.value);
   };
-
   const myDate = () => {
     const newDate = dayjs(expiresAt).format("MM/DD/YYYY");
     return new Date(newDate);
@@ -55,19 +59,16 @@ const CreateJob = () => {
       engagement,
       description,
       expiresAt: myDate(),
-      userId: session?.userId,
+      userId: user?.id,
     };
-    fetch("/api/job/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    axios
+      .post("/api/job/new", data)
       .then((response) => {
         if (response.status === 200) {
-          window.location.replace("/dashboard");
+          toast.success("Successfully Added a New Job");
+          navigate("/dashboard");
         } else {
+          toast.warning("An Error occured saving data to the database");
           setError("An Error occured saving data to the database");
         }
       })

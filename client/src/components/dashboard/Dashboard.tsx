@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Button, Card, Typography } from "@mui/material";
 import axios from "axios";
 import "./styles.css";
@@ -7,6 +5,7 @@ import SearchOverlay from "../searchoverlay/SearchOverlay";
 import { AiFillFilter } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import Job from "./job/Job";
+import { getUser } from "../../utils/user";
 
 interface ItemProps {
   title: string | null;
@@ -18,13 +17,13 @@ interface ItemProps {
 }
 
 const Dashboard = () => {
+  const user = getUser();
   const [jobs, setJobs] = useState([]);
-  const session = null;
-
   const fetchJobs = async () => {
     const response = await axios
-      .get("/api/job")
-      .then((res) => setJobs(res.data));
+      .get("/api/jobs")
+      .then((res) => setJobs(res.data))
+      .catch((e) => console.log(e));
     return response;
   };
   useEffect(() => {
@@ -115,9 +114,9 @@ const Dashboard = () => {
           }}
         >
           {" "}
-          {session?.position === "EMPLOYER" && (
+          {user?.role === "EMPLOYER" && (
             <Button variant="contained">
-              <a href="/employer/job/create">
+              <a href="job/new">
                 <Typography
                   sx={{
                     color: "white",

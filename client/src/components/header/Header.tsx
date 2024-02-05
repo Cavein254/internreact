@@ -16,6 +16,7 @@ import Overlay from "../overlay/Overlay";
 import { HeaderLinks } from "./LinkData";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { getUser } from "../../utils/user";
 
 const StyledSignUp = styled(Button)`
   background-color: #ff6600;
@@ -30,7 +31,7 @@ const StyledSignUp = styled(Button)`
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const session = null;
+  const session = getUser();
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -120,8 +121,8 @@ const Header = () => {
           </Box>
         ) : (
           <Box className="header-btns">
-            {/* <Box>
-              <a href="/signin" className="header-link">
+            <Box>
+              {/* <a href="/signin" className="header-link">
                 <Button
                   variant="text"
                   className="header-login-btn"
@@ -132,8 +133,8 @@ const Header = () => {
                 >
                   Log In
                 </Button>
-              </a>
-            </Box> */}
+              </a> */}
+            </Box>
             <Box>
               <Link to="/auth" className="header-link">
                 <StyledSignUp variant="contained">

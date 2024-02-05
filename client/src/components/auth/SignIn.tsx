@@ -10,10 +10,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../../context/userContext";
+import { Form } from "react-router-dom";
+import { saveUser } from "../../utils/user";
+import { toast } from "react-toastify";
 
 const SignIn = ({
   login,
@@ -22,6 +26,7 @@ const SignIn = ({
   login: boolean;
   setLogin: (value: boolean | false) => void;
 }) => {
+  const { setUser, user } = useContext(UserContext);
   const [signUp, setsignUp] = React.useState({
     email: "",
     password: "",
@@ -76,12 +81,17 @@ const SignIn = ({
         .then((res) => {
           const { status, payload } = res.data;
           if (status !== 200) {
+            toast.error(payload);
             setError(payload);
             return;
           }
+          toast.success("Success");
+          setUser(payload);
+          saveUser(payload);
           navigate("/dashboard");
         })
         .catch((e) => {
+          toast.error("Unable to connect to server");
           setError("Unable to connect to server");
         });
     }
@@ -119,7 +129,7 @@ const SignIn = ({
             Glad to have you Back!
           </Typography>
         </Box>
-        <form>
+        <Box>
           <Box
             sx={{
               display: "flex",
@@ -175,7 +185,7 @@ const SignIn = ({
               Sign In
             </Button>
           </Box>
-        </form>
+        </Box>
         <Box
           sx={{
             mt: "1rem",
